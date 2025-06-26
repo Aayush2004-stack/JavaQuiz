@@ -1,25 +1,32 @@
-import java.lang.reflect.Array;
+
 
 public class Questions {
-    static String choices[]={"12","12","df","sdf"};
     String question;
-    String answer;
-    Questions(String question, String answer){
-        this.question =question;
-        this.answer=answer;
-        //this.choices =choices;
+    String[] choices = new String[4];
+    int correctIndex;
+
+
+    Questions(String question, String choice1, String choice2, String choice3, String choice4, int correctIndex) {
+        this.question = question;
+        this.choices[0] = choice1;
+        this.choices[1] = choice2;
+        this.choices[2] = choice3;
+        this.choices[3] = choice4;
+        this.correctIndex = correctIndex;
     }
 
-    static Questions qn1 = new Questions("what is todays date","1: 25 june");
 
-    public static void main(String[] args) {
-        System.out.println(qn1.question);
-        System.out.println(qn1.answer);
-
-
-
+    public void displayQuestion() {
+        System.out.println("\n" + question);
+        for (int i = 0; i < choices.length; i++) {
+            System.out.println((i + 1) + ": " + choices[i]);
+        }
     }
 
+
+    public boolean isCorrect(int userChoice) {
+        return (userChoice - 1) == correctIndex;
+    }
 
 
 }
