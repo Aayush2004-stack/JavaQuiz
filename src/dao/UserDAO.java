@@ -46,6 +46,8 @@ public class UserDAO {
 
                     System.out.println(user.getUsername());
                     user.setGameMaster(isGameMaster);
+                    user.setUsername(user.getUsername());
+
 
                     if(password.equals(user.getPassword())){
                         return user;

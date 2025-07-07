@@ -20,7 +20,7 @@ public class UserController {
 
         if(userdao.getUser(user)!=null){
             if(user.isGameMaster()){
-                GameMasterView.view();
+                GameMasterView.view(user);
             }
             else{
                 PlayerView.view();

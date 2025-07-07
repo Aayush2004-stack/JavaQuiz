@@ -2,10 +2,10 @@ package model;
 
 public class Question {
     private String title;
-    private int[] options = new int[4];
+    private String[] options = new String[4];
     private int correct_index;
 
-    public Question(String title, int option_1, int option_2, int option_3, int option_4, int correct_index)
+    public Question(String title, String option_1, String option_2, String option_3, String option_4, int correct_index)
     {
         this.title = title;
         this.options[0] = option_1;
@@ -19,18 +19,14 @@ public class Question {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public String[] getOptions() {
+        return options;
     }
-
 
     public int getCorrect_index() {
         return correct_index;
     }
 
-    public void setCorrect_index(int correct_index) {
-        this.correct_index = correct_index;
-    }
 
     public void showOptions(){
         for(int i = 0; i < this.options.length; i++){
