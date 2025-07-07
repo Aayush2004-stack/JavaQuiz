@@ -17,4 +17,16 @@ public class UserController {
             return false;
         }
     }
+    public boolean logIn(String username, String password){
+        boolean isLogIn= false;
+        User user=new User(username,password);
+        isLogIn=userdao.getUser(user);
+        if(isLogIn){
+            return true;
+
+        }
+        else {
+            return false;
+        }
+    }
 }
