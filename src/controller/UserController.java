@@ -2,28 +2,30 @@ package controller;
 
 import dao.UserDAO;
 import model.User;
+import view.GameMasterView;
+import view.PlayerView;
 
 public class UserController {
-    private UserDAO userdao = new UserDAO();
+    private  UserDAO userdao = new UserDAO();
 
     public boolean signUp(String username, String password)
     {
-        boolean isSignedUp = false;
+
         User user = new User(username, password);
-        isSignedUp = userdao.insertUser(user);
-        if(isSignedUp){
-            return true;
-        }else{
-            return false;
-        }
+        return userdao.insertUser(user); //returns either true or false
     }
     public boolean logIn(String username, String password){
-        boolean isLogIn= false;
-        User user=new User(username,password);
-        isLogIn=userdao.getUser(user);
-        if(isLogIn){
-            return true;
 
+        User user=new User(username,password);
+
+        if(userdao.getUser(user)!=null){
+            if(user.isGameMaster()){
+                GameMasterView.view();
+            }
+            else{
+                PlayerView.view();
+            }
+            return true;
         }
         else {
             return false;

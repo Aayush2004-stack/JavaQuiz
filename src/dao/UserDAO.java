@@ -1,18 +1,16 @@
 package dao;
 
 import model.User;
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Objects;
 
 public class UserDAO {
+    Connection conn = null;
     public boolean insertUser(User user){
         boolean isUserInserted = false;
-        Connection conn = null;
+
         try {
             conn = DatabaseConnection.connect();
             if(conn != null){
@@ -30,10 +28,10 @@ public class UserDAO {
         }
         return isUserInserted;
     }
-    public boolean getUser(User user){
 
-        boolean isUserFound=false;
-        Connection conn =null;
+    public User getUser(User user){
+
+
         try{
             conn = DatabaseConnection.connect();
             if(conn != null){
@@ -41,26 +39,28 @@ public class UserDAO {
                 PreparedStatement ps = conn.prepareStatement(query);
                 ps.setString(1, user.getUsername());
 
-                ResultSet resultSet =ps.executeQuery();
-                if(resultSet.next()){
-                    String username= resultSet.getString("username");
-                    String password= resultSet.getString("password");
-                    boolean isGameMaster=resultSet.getBoolean("isGameMaster");
+                ResultSet userSet =ps.executeQuery();
+                if(userSet.next()){
+                    String password= userSet.getString("password");
+                    boolean isGameMaster=userSet.getBoolean("isGameMaster");
+
+                    System.out.println(user.getUsername());
+                    user.setGameMaster(isGameMaster);
+
                     if(password.equals(user.getPassword())){
-                        isUserFound=true;
+                        return user;
                     }
                     else{
                         System.out.println("password doesn't match");
                     }
-
                 }
-
             }
-
         }
+
         catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
-        return isUserFound;
+
+        return null;
     }
 }
