@@ -19,10 +19,12 @@ public class GameMasterView {
         int adminChoice= Integer.parseInt(input.nextLine());
 
         if (adminChoice==1){
-            AddQuestionView.addView();
+            AddQuestionView.addQuestionView();
         }
 
-
+        if(adminChoice==3){
+            QuizView.quizView();
+        }
 
     }
 }

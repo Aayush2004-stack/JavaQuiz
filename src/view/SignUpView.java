@@ -15,7 +15,7 @@ public class SignUpView {
             System.out.println("Signed Up successfully");
         }
         else{
-            System.out.println("Sign Up unsuccessfull");
+            System.out.println("error ");
         }
     }
 }

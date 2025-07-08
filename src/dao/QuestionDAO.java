@@ -4,7 +4,9 @@ import model.Question;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class QuestionDAO {
     Connection conn=null;
@@ -34,5 +36,41 @@ public class QuestionDAO {
         }
 
         return isAdded;
+    }
+
+    public ArrayList<Question> retriveQuestion(){
+        ArrayList<Question>questions=new ArrayList<>();
+        try {
+            conn =DatabaseConnection.connect();
+            String query="SELECT title, option1, option2, option3, option4, correctOption FROM Questions";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet questionSet =ps.executeQuery();
+
+            while(questionSet.next()) {
+                String questionTitle=questionSet.getString("title");
+                String choice1=questionSet.getString("option1");
+                String choice2=questionSet.getString("option2");
+                String choice3=questionSet.getString("option3");
+                String choice4=questionSet.getString("option4");
+                int correctOption=questionSet.getInt("correctOption");
+
+                Question questionss=new Question(questionTitle,choice1,choice2,choice3,choice4,correctOption);
+                questions.add(questionss);}
+
+
+
+            return questions;
+
+
+
+
+
+
+        }
+        catch (ClassNotFoundException  | SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }

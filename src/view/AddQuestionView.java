@@ -6,7 +6,7 @@ import controller.QuestionController;
 import java.util.Scanner;
 
 public class AddQuestionView {
-    public static  void addView(){
+    public static  void addQuestionView(){
         QuestionController questionController =new QuestionController();
         Scanner input = new Scanner(System.in);
 

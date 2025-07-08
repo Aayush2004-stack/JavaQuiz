@@ -44,7 +44,7 @@ public class UserDAO {
                     String password= userSet.getString("password");
                     boolean isGameMaster=userSet.getBoolean("isGameMaster");
 
-                    System.out.println(user.getUsername());
+
                     user.setGameMaster(isGameMaster);
                     user.setUsername(user.getUsername());
 
