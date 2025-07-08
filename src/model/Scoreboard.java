@@ -1,12 +1,18 @@
 package model;
 
-import java.time.LocalDate;
+
+import java.util.Date;
 
 public class Scoreboard {
     private int userId;
     private int score;
-    private LocalDate playedDate;
-    public Scoreboard(int userId, int score, LocalDate playedDate) {
+    private Date playedDate;
+
+    public Scoreboard(int score){
+        this.score = score;
+
+    }
+    public Scoreboard(int userId, int score, Date playedDate) {
         this.userId = userId;
         this.score = score;
         this.playedDate = playedDate;
@@ -28,11 +34,11 @@ public class Scoreboard {
         this.score = score;
     }
 
-    public LocalDate getPlayedDate() {
+    public Date getPlayedDate() {
         return playedDate;
     }
 
-    public void setPlayedDate(LocalDate playedDate) {
+    public void setPlayedDate(Date playedDate) {
         this.playedDate = playedDate;
     }
 }

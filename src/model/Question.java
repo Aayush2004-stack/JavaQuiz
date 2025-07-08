@@ -5,6 +5,10 @@ public class Question {
     private String[] options = new String[4];
     private int correct_index;
 
+
+    public Question(){
+
+    }
     public Question(String title, String option_1, String option_2, String option_3, String option_4, int correct_index)
     {
         this.title = title;
@@ -36,9 +40,7 @@ public class Question {
 
 
     public  boolean checkAnswer(int answer){
-        if((answer) == this.correct_index){
-            return true;
-        }
-        return false;
+        return (answer) == this.correct_index;
     }
+
 }

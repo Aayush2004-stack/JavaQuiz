@@ -1,14 +1,19 @@
 package view;
 
 import controller.QuestionController;
+import controller.ScoreController;
 import model.Question;
+import model.Scoreboard;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class QuizView {
     public static void quizView(){
+        int score=0;
         QuestionController questionController =new QuestionController();
+        ScoreController scoreController=new ScoreController();
+
         Scanner input = new Scanner(System.in);
 
         ArrayList<Question> question=questionController.retriveQuestion();
@@ -16,16 +21,22 @@ public class QuizView {
         for (Question ques: question){
 
             System.out.println(i+") "+ques.getTitle()+"\n");
-            System.out.println("1) "+ques.getOptions()[0]);
-            System.out.println("2) "+ques.getOptions()[1]);
-            System.out.println("3) "+ques.getOptions()[2]);
-            System.out.println("4) "+ques.getOptions()[3]);
+            ques.showOptions();
             System.out.println("Choose one answer: ");
-            System.out.println();
             int answer=Integer.parseInt(input.nextLine());
+
+            if(ques.checkAnswer(answer)){
+                score++;
+            }
+
 
             i++;
 
+        }
+
+        System.out.println("Score: "+ score);
+        if(scoreController.score(score)){
+            System.out.println("Score updated in the scoreboard");
         }
 
     }
