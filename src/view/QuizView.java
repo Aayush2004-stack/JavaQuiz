@@ -23,6 +23,7 @@ public class QuizView {
             System.out.println("Choose one answer: ");
             System.out.println();
             int answer=Integer.parseInt(input.nextLine());
+
             i++;
 
         }

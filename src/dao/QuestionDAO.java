@@ -39,7 +39,7 @@ public class QuestionDAO {
     }
 
     public ArrayList<Question> retriveQuestion(){
-        ArrayList<Question>questions=new ArrayList<>();
+        ArrayList<Question> questions = new ArrayList<>();
         try {
             conn =DatabaseConnection.connect();
             String query="SELECT title, option1, option2, option3, option4, correctOption FROM Questions";
@@ -54,17 +54,10 @@ public class QuestionDAO {
                 String choice4=questionSet.getString("option4");
                 int correctOption=questionSet.getInt("correctOption");
 
-                Question questionss=new Question(questionTitle,choice1,choice2,choice3,choice4,correctOption);
-                questions.add(questionss);}
-
-
+                Question question = new Question(questionTitle,choice1,choice2,choice3,choice4,correctOption);
+                questions.add(question);}
 
             return questions;
-
-
-
-
-
 
         }
         catch (ClassNotFoundException  | SQLException e) {

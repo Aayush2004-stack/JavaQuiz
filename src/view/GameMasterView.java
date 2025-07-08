@@ -21,10 +21,8 @@ public class GameMasterView {
         if (adminChoice==1){
             AddQuestionView.addQuestionView();
         }
-
         if(adminChoice==3){
             QuizView.quizView();
         }
-
     }
 }

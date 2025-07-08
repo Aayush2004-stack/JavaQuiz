@@ -35,7 +35,7 @@ public class Question {
     }
 
 
-    public boolean checkAnswer(int answer){
+    public  boolean checkAnswer(int answer){
         if((answer) == this.correct_index){
             return true;
         }
