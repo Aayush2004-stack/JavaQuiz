@@ -15,6 +15,7 @@ public class GameMasterView {
         System.out.println("Enter 2 to update questions");
         System.out.println("Enter 3 to test the quiz");
         System.out.println("Enter 4 to see the scoreboard");
+        System.out.println("Enter 4 to exit");
 
         int adminChoice= Integer.parseInt(input.nextLine());
 
@@ -23,6 +24,9 @@ public class GameMasterView {
         }
         if(adminChoice==3){
             QuizView.quizView();
+        }
+        if(adminChoice==2){
+            UpdateQuestionView.updateQuestionView();
         }
     }
 }

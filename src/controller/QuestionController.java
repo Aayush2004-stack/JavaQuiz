@@ -2,24 +2,45 @@ package controller;
 
 import dao.QuestionDAO;
 import model.Question;
+import service.QuestionService;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class QuestionController {
-    private QuestionDAO questionDao =new QuestionDAO();
 
-    public boolean addQuestion(String title, String option_1, String option_2, String option_3, String option_4, int correct_index){
-        Question question =new Question(title, option_1,option_2,option_3,option_4,correct_index);
-        return questionDao.insertQuestion(question);
+    QuestionService questionSerice =new QuestionService();
+    ArrayList<Question> question=questionSerice.retriveQuestion();
+
+    public int playQuiz(){
+        int score=0;
+        Scanner input = new Scanner(System.in);
+        int i =1;
+        for (Question ques: question){
+            System.out.println(i+") "+ques.getTitle()+"\n");
+            ques.showOptions();
+            System.out.println("Choose one answer: ");
+            int answer=Integer.parseInt(input.nextLine());
+
+            if(ques.checkAnswer(answer)){
+                score++;
+            }
+            i++;}
+        return score;
+    }
+    public void displayQuestion(){
+        //TODO Sn should be id of the question rather than int i
+        int i =1;
+        for (Question ques: question){
+            System.out.println(i+") "+ques.getTitle()+"\n");
+            ques.showOptions();
+            System.out.println("Correct answer:"+ques.getCorrect_index());
+
+            i++;}
+
+
     }
 
-    public ArrayList<Question> retriveQuestion(){
 
-       ;
-        return questionDao.retriveQuestion();
-
-
-
-
-    }
 }

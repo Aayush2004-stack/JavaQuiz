@@ -1,13 +1,14 @@
 package view;
 
 import controller.QuestionController;
+import service.QuestionService;
 
 
 import java.util.Scanner;
 
 public class AddQuestionView {
     public static  void addQuestionView(){
-        QuestionController questionController =new QuestionController();
+        QuestionService questionService =new QuestionService();
         Scanner input = new Scanner(System.in);
 
         System.out.println("How many question you want to add?");
@@ -32,7 +33,7 @@ public class AddQuestionView {
             System.out.println("Which option is the right answer? Give the option number only");
             int correctIndex=Integer.parseInt(input.nextLine());
 
-            if(questionController.addQuestion(questionTitle,optionOne,optionTwo,optionThree,optionFour,correctIndex)){
+            if(questionService.addQuestion(questionTitle,optionOne,optionTwo,optionThree,optionFour,correctIndex)){
                 System.out.println("Question added successfully");
             }
             else {

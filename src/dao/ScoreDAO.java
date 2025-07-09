@@ -15,11 +15,10 @@ public class ScoreDAO {
         try {
             conn =DatabaseConnection.connect();
             if (conn!=null){
-                String query ="INSERT INTO score (userId, score, playedDate) VALUES (?, ?, ?)";
+                String query ="INSERT INTO score (userId, score) VALUES (?, ?)";
                 PreparedStatement ps =conn.prepareStatement(query);
                 ps.setInt(1,score.getUserId());
                 ps.setInt(2,score.getScore());
-                ps.setDate(3, new java.sql.Date(score.getPlayedDate().getTime()));
                 int row = ps.executeUpdate();
                 if(row>0){
                     isScoreAdded=true;
