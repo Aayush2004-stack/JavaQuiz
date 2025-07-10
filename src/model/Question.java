@@ -4,11 +4,10 @@ public class Question {
     private String title;
     private String[] options = new String[4];
     private int correct_index;
+    private int questionId;
 
 
-    public Question(){
 
-    }
     public Question(String title, String option_1, String option_2, String option_3, String option_4, int correct_index)
     {
         this.title = title;
@@ -17,6 +16,20 @@ public class Question {
         this.options[2] = option_3;
         this.options[3]= option_4;
         this.correct_index = correct_index;
+    }
+    public Question(String title, String option_1, String option_2, String option_3, String option_4, int correct_index, int questionId)
+    {
+        this.title = title;
+        this.options[0] = option_1;
+        this.options[1] = option_2;
+        this.options[2] = option_3;
+        this.options[3]= option_4;
+        this.correct_index = correct_index;
+        this.questionId=questionId;
+    }
+
+    public int getQuestionId() {
+        return questionId;
     }
 
     public String getTitle() {

@@ -35,18 +35,21 @@ public class UserDAO {
         try{
             conn = DatabaseConnection.connect();
             if(conn != null){
-                String query = "SELECT username, password, isGameMaster FROM user WHERE username = ?";
+                String query = "SELECT userId, username, password, isGameMaster FROM user WHERE username = ?";
                 PreparedStatement ps = conn.prepareStatement(query);
                 ps.setString(1, user.getUsername());
 
                 ResultSet userSet =ps.executeQuery();
                 if(userSet.next()){
+                    int userId=userSet.getInt("userId");
                     String password= userSet.getString("password");
                     boolean isGameMaster=userSet.getBoolean("isGameMaster");
 
 
                     user.setGameMaster(isGameMaster);
                     user.setUsername(user.getUsername());
+                    user.setUserId(userId);
+
 
 
                     if(password.equals(user.getPassword())){

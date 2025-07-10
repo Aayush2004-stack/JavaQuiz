@@ -4,6 +4,7 @@ public class User {
     private  String username;
     private String password;
     private boolean isGameMaster;
+    private int userId;
 
     public User(String username, String password) {
         this.username = username;
@@ -12,6 +13,13 @@ public class User {
 
 
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public void setUsername(String username) {
         this.username = username;

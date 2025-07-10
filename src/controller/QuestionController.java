@@ -1,19 +1,20 @@
 package controller;
 
-import dao.QuestionDAO;
-import model.Question;
-import service.QuestionService;
 
+import model.Question;
+import model.Scoreboard;
+import model.User;
+import service.QuestionService;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class QuestionController {
 
-    QuestionService questionSerice =new QuestionService();
-    ArrayList<Question> question=questionSerice.retriveQuestion();
+    QuestionService questionService =new QuestionService();
+    ArrayList<Question> question=questionService.retriveQuestion();
 
-    public int playQuiz(){
+    public Scoreboard playQuiz(User user){
         int score=0;
         Scanner input = new Scanner(System.in);
         int i =1;
@@ -27,18 +28,18 @@ public class QuestionController {
                 score++;
             }
             i++;}
-        return score;
+        Scoreboard scoreboard =new Scoreboard(user.getUserId(),score);
+
+        return scoreboard;
     }
     public void displayQuestion(){
-        //TODO Sn should be id of the question rather than int i
-        int i =1;
+
+
         for (Question ques: question){
-            System.out.println(i+") "+ques.getTitle()+"\n");
+            System.out.println(ques.getQuestionId()+") "+ques.getTitle()+"\n");
             ques.showOptions();
-            System.out.println("Correct answer:"+ques.getCorrect_index());
-
-            i++;}
-
+            System.out.println("Correct answer:"+ques.getCorrect_index()+"\n\n");
+            }
 
     }
 

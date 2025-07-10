@@ -22,8 +22,7 @@ public class DatabaseConnection {
     private static  final String password= env.getProperty("DB_PASSWORD");
     private  static final String username= env.getProperty("DB_USER");
 
-    public DatabaseConnection() throws IOException {
-    }
+
 
 
 

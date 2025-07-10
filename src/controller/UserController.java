@@ -23,7 +23,7 @@ public class UserController {
                 GameMasterView.view(user);
             }
             else{
-                PlayerView.view();
+                PlayerView.view(user);
             }
             return true;
         }

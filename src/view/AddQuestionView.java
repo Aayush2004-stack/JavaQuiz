@@ -7,7 +7,7 @@ import service.QuestionService;
 import java.util.Scanner;
 
 public class AddQuestionView {
-    public static  void addQuestionView(){
+    public static  void addQuestion(){
         QuestionService questionService =new QuestionService();
         Scanner input = new Scanner(System.in);
 
