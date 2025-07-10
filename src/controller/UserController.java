@@ -8,13 +8,13 @@ import view.PlayerView;
 public class UserController {
     private  UserDAO userdao = new UserDAO();
 
-    public boolean signUp(String username, String password)
+    public boolean signUp(String name, String username, String password)
     {
 
-        User user = new User(username, password);
+        User user = new User(name, username, password);
         return userdao.insertUser(user); //returns either true or false
     }
-    public boolean logIn(String username, String password){
+    public boolean logIn( String username, String password){
 
         User user=new User(username,password);
 

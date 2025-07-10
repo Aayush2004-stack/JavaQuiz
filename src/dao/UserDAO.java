@@ -14,10 +14,11 @@ public class UserDAO {
         try {
             conn = DatabaseConnection.connect();
             if(conn != null){
-                String query = "INSERT INTO user (username, password) VALUES (?, ?)";
+                String query = "INSERT INTO user (name, username, password) VALUES (?, ?, ?)";
                 PreparedStatement ps = conn.prepareStatement(query);
-                ps.setString(1, user.getUsername());
-                ps.setString(2, user.getPassword());
+                ps.setString(1, user.getName());
+                ps.setString(2, user.getUsername());
+                ps.setString(3, user.getPassword());
                 int row = ps.executeUpdate();
                 if(row > 0){
                     isUserInserted = true;
@@ -35,7 +36,7 @@ public class UserDAO {
         try{
             conn = DatabaseConnection.connect();
             if(conn != null){
-                String query = "SELECT userId, username, password, isGameMaster FROM user WHERE username = ?";
+                String query = "SELECT name, userId, username, password, isGameMaster FROM user WHERE username = ?";
                 PreparedStatement ps = conn.prepareStatement(query);
                 ps.setString(1, user.getUsername());
 
@@ -43,11 +44,11 @@ public class UserDAO {
                 if(userSet.next()){
                     int userId=userSet.getInt("userId");
                     String password= userSet.getString("password");
+                    String name= userSet.getString("name");
                     boolean isGameMaster=userSet.getBoolean("isGameMaster");
 
-
+                    user.setName(name);
                     user.setGameMaster(isGameMaster);
-                    user.setUsername(user.getUsername());
                     user.setUserId(userId);
 
 

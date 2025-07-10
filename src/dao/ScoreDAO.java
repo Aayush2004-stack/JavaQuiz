@@ -37,15 +37,15 @@ public class ScoreDAO {
         try {
             conn=DatabaseConnection.connect();
             if(conn!=null){
-                String query ="SELECT u.username, s.score, s.playedDate FROM user u JOIN score s ON u.userId =s.userID ORDER BY s.score DESC";
+                String query ="SELECT u.name,  s.score, s.playedDate FROM user u JOIN score s ON u.userId =s.userID ORDER BY s.score DESC";
                 PreparedStatement ps = conn.prepareStatement(query);
                 ResultSet resultSet = ps.executeQuery();
                 while(resultSet.next()){
-                    String username =resultSet.getString("username");
+                    String name =resultSet.getString("name");
                     int score =resultSet.getInt("score");
                     Date playedDate = resultSet.getDate("playedDate");
 
-                    Scoreboard scoreboard=new Scoreboard(username,score,playedDate);
+                    Scoreboard scoreboard=new Scoreboard(name,score,playedDate);
                     scores.add(scoreboard);
                 }
 

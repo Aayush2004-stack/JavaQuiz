@@ -26,7 +26,7 @@ public class QuestionService {
     }
 
     public ArrayList<Question> retriveQuestion(){
-        return questionDao.retriveQuestion();
+        return questionDao.retrieveQuestion();
 
     }
 }

@@ -9,7 +9,7 @@ public class GameMasterView {
 
     public static void view(User user){
         Scanner input = new Scanner(System.in);
-        System.out.println("Welcome back our Game Master AKA "+user.getUsername()+"\n");
+        System.out.println("Welcome back our Game Master AKA "+user.getName()+"\n");
 
         while (true){
 

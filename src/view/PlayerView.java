@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class PlayerView {
     public static  void view(User user){
         Scanner input = new Scanner(System.in);
-        System.out.println("Welcome one of the great player AKA "+user.getUsername());
+        System.out.println("Welcome one of the great player AKA "+user.getName());
         while(true){
             System.out.println("\nEnter 1 to play the quiz");
             System.out.println("Enter 2 to see the scoreboard");

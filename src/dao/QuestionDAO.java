@@ -89,7 +89,7 @@ public class QuestionDAO {
 
     }
 
-    public ArrayList<Question> retriveQuestion(){
+    public ArrayList<Question> retrieveQuestion(){
         ArrayList<Question> questions = new ArrayList<>();
         try {
             conn =DatabaseConnection.connect();

@@ -5,7 +5,7 @@ import dao.ScoreDAO;
 import model.Scoreboard;
 
 import java.util.ArrayList;
-import java.util.SortedMap;
+
 
 
 public class ScoreController {
@@ -23,7 +23,7 @@ public class ScoreController {
             int i=0;
 
             for (Scoreboard score: scores){
-                System.out.println("----------------------------------------------");
+
                 System.out.println("S.N. "+i);
                 System.out.println("----------------------------------------------");
                 System.out.println("Name = "+score.getPlayerName());
