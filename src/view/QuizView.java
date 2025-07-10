@@ -14,7 +14,7 @@ public class QuizView {
 
         int score =qc.playQuiz(user).getScore();
         System.out.println("Score: "+ score);
-        if(scoreController.scoreboard(new Scoreboard(user.getUserId(),score)))
+        if(scoreController.addToScoreboard(new Scoreboard(user.getUserId(),score)))
         {System.out.println("Score updated in the scoreboard");
         }
 

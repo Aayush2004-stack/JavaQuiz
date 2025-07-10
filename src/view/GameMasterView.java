@@ -34,7 +34,10 @@ public class GameMasterView {
             else if(adminChoice==4){
                 QuizView.quizView(user);
             }
-            //TODO left for seeing scoreboard
+            else if(adminChoice==5){
+                ScoreboardView.viewScoreboard();
+            }
+
 
             else if(adminChoice==6){
                 System.out.println("Logging out ");

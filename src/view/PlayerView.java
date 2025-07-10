@@ -10,7 +10,7 @@ public class PlayerView {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome one of the great player AKA "+user.getUsername());
         while(true){
-            System.out.println("Enter 1 to play the quiz");
+            System.out.println("\nEnter 1 to play the quiz");
             System.out.println("Enter 2 to see the scoreboard");
             System.out.println("Enter 3 to exit");
 
@@ -21,6 +21,7 @@ public class PlayerView {
 
             }
             else if (playerChoice==2){
+                ScoreboardView.viewScoreboard();
 
             }
             else if (playerChoice==3){
