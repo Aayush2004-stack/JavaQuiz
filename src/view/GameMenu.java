@@ -1,6 +1,5 @@
 package view;
 
-import controller.UserController;
 import java.util.Scanner;
 
 public class GameMenu {
@@ -21,6 +20,7 @@ public class GameMenu {
             }
             else if(option==3){
                 System.out.println("Thank you for playing the quiz");
+                break;
             }
             else{
                 System.out.println("Please enter the valid options only");

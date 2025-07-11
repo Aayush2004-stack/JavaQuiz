@@ -12,7 +12,7 @@ public class PlayerView {
         while(true){
             System.out.println("\nEnter 1 to play the quiz");
             System.out.println("Enter 2 to see the scoreboard");
-            System.out.println("Enter 3 to exit");
+            System.out.println("Enter 3 to logout");
 
             int playerChoice= Integer.parseInt(input.nextLine());
 
@@ -25,10 +25,11 @@ public class PlayerView {
 
             }
             else if (playerChoice==3){
+                System.out.println("Logging out\n");
                 break;
             }
             else{
-                System.out.println("Please enter the correct option only");
+                System.out.println("Please enter the correct option only\n");
             }
 
         }

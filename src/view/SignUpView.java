@@ -14,10 +14,10 @@ public class SignUpView {
         System.out.println("Enter password: ");
         String password = scan.nextLine();
         if(userController.signUp(name,username, password)){
-            System.out.println("Signed Up successfully");
+            System.out.println("Signed Up successfully\n");
         }
         else{
-            System.out.println("error ");
+            System.out.println("error\n");
         }
     }
 }

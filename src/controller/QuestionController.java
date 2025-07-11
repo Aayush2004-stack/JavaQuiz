@@ -28,9 +28,8 @@ public class QuestionController {
                 score++;
             }
             i++;}
-        Scoreboard scoreboard =new Scoreboard(user.getUserId(),score);
 
-        return scoreboard;
+        return new Scoreboard(user.getUserId(),score);
     }
     public void displayQuestion(){
 

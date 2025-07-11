@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class ScoreDAO {
-    Connection conn =null;
+    private Connection conn =null;
 
     public boolean addScore(Scoreboard score){
         boolean isScoreAdded = false;
@@ -37,12 +37,12 @@ public class ScoreDAO {
         try {
             conn=DatabaseConnection.connect();
             if(conn!=null){
-                String query ="SELECT u.name,  s.score, s.playedDate FROM user u JOIN score s ON u.userId =s.userID ORDER BY s.score DESC";
+                String query ="SELECT u.name,  max(s.score) as totalScore, s.playedDate FROM user u JOIN score s ON u.userId =s.userID GROUP by u.userId ORDER BY s.score DESC";
                 PreparedStatement ps = conn.prepareStatement(query);
                 ResultSet resultSet = ps.executeQuery();
                 while(resultSet.next()){
                     String name =resultSet.getString("name");
-                    int score =resultSet.getInt("score");
+                    int score =resultSet.getInt("totalScore");
                     Date playedDate = resultSet.getDate("playedDate");
 
                     Scoreboard scoreboard=new Scoreboard(name,score,playedDate);

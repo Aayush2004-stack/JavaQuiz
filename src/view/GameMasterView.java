@@ -18,7 +18,7 @@ public class GameMasterView {
             System.out.println("Enter 3 to remove questions");
             System.out.println("Enter 4 to test the quiz");
             System.out.println("Enter 5 to see the scoreboard");
-            System.out.println("Enter 6 to exit");
+            System.out.println("Enter 6 to logout");
 
             int adminChoice= Integer.parseInt(input.nextLine());
 
@@ -40,7 +40,7 @@ public class GameMasterView {
 
 
             else if(adminChoice==6){
-                System.out.println("Logging out ");
+                System.out.println("Logging out\n");
                 break;
             }
             else{
