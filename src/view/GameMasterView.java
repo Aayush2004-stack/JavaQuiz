@@ -20,32 +20,37 @@ public class GameMasterView {
             System.out.println("Enter 5 to see the scoreboard");
             System.out.println("Enter 6 to logout");
 
-            int adminChoice= Integer.parseInt(input.nextLine());
+            try{
+                int adminChoice= Integer.parseInt(input.nextLine());
 
-            if(adminChoice==1){
-                AddQuestionView.addQuestion();
-            }
-            else if (adminChoice==2){
-                UpdateQuestionView.updateQuestion();
-            }
-            else if(adminChoice==3){
-                DeleteQuestionView.deleteQuestion();
-            }
-            else if(adminChoice==4){
-                QuizView.quizView(user);
-            }
-            else if(adminChoice==5){
-                ScoreboardView.viewScoreboard();
-            }
+                if(adminChoice==1){
+                    AddQuestionView.addQuestion();
+                }
+                else if (adminChoice==2){
+                    UpdateQuestionView.updateQuestion();
+                }
+                else if(adminChoice==3){
+                    DeleteQuestionView.deleteQuestion();
+                }
+                else if(adminChoice==4){
+                    QuizView.quizView(user);
+                }
+                else if(adminChoice==5){
+                    ScoreboardView.viewScoreboard();
+                }
 
 
-            else if(adminChoice==6){
-                System.out.println("Logging out\n");
-                break;
+                else if(adminChoice==6){
+                    System.out.println("Logging out\n");
+                    break;
+                }
+                else{
+                    System.out.println("Please enter a valid option only\n");
+                }
+            } catch (RuntimeException e) {
+                System.out.println("Please enter a valid number only");
             }
-            else{
-                System.out.println("Please enter a valid option only\n");
-            }
+
 
         }
 
