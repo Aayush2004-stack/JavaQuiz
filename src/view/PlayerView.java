@@ -14,23 +14,30 @@ public class PlayerView {
             System.out.println("Enter 2 to see the scoreboard");
             System.out.println("Enter 3 to logout");
 
-            int playerChoice= Integer.parseInt(input.nextLine());
 
-            if(playerChoice==1){
-                QuizView.quizView(user);
+            try{
+                int playerChoice= Integer.parseInt(input.nextLine());
 
-            }
-            else if (playerChoice==2){
-                ScoreboardView.viewScoreboard();
+                if(playerChoice==1){
+                    QuizView.quizView(user);
 
+                }
+                else if (playerChoice==2){
+                    ScoreboardView.viewScoreboard();
+
+                }
+                else if (playerChoice==3){
+                    System.out.println("Logging out\n");
+                    break;
+                }
+                else{
+                    System.out.println("Please enter the correct option only\n");
+                }
+
+            } catch (RuntimeException e) {
+                System.out.println("Please enter a valid number only");
             }
-            else if (playerChoice==3){
-                System.out.println("Logging out\n");
-                break;
-            }
-            else{
-                System.out.println("Please enter the correct option only\n");
-            }
+
 
         }
     }
