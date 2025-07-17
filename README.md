@@ -45,11 +45,12 @@ JavaQuiz is a command-line based quiz application with the following features:
 
 ### `user` Table
 
-| Column   | Type     | Description          |
-|----------|----------|----------------------|
-| userId   | INT      | Primary key          |
-| username | VARCHAR  | Unique username      |
-| password | VARCHAR  | User password        |
+| Column       | Type    | Description      |
+|--------------|---------|------------------|
+| userId       | INT     | Primary key      |
+| username     | VARCHAR | Unique username  |
+| password     | VARCHAR | User password    |
+| IsGameMaster | Boolean | Is player or not |
 
 ### `score` Table
 
